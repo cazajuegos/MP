@@ -98,7 +98,7 @@ int **Submatriz(int **matriz, int inicio_F, int inicio_C, int fin_F, int fin_C){
 }
 
 //APARTADO H
-int **Elimina_Fila(int **matriz, int &F, int C, int fila_borrar){
+int **Elimina_Fila(int **matriz, int F, int C, int fila_borrar){
   int **matriz_mod = Crea_Matriz(F -1, C);
 
     for(int i = 0; i < F; i++){
@@ -106,14 +106,35 @@ int **Elimina_Fila(int **matriz, int &F, int C, int fila_borrar){
         for(int j = 0; j < C; j++){
           matriz_mod[i][j] = matriz[i][j];
         }
-        }else if(i == fila_borrar){
-          F--;
+      }
+      else{
           i--;
-        }
+      }
   }
 
     return matriz_mod;
 }
+
+//APARTADO I
+int **Elimina_Columna(int ** matriz, int F, int C, int col_borrar){
+  int **matriz_mod = Crea_Matriz(F, C-1);
+
+  for(int j = 0; j < C; j++){
+    if(j != col_borrar){
+      for(int i = 0; i < F; i++){
+        matriz_mod[j][i] = matriz[j][i];
+      }
+    }
+    else{
+        j--;
+    }
+}
+
+    return matriz_mod;
+}
+
+//APARTADO J
+int **Traspuesta(int **matriz, int F, C)
 
 
 int main(int argc, char const *argv[]) {
