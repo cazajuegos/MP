@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include "Matriz2D_1.h"
+#include "Matriz2D_2.h"
 
 using namespace std;
 
@@ -10,27 +10,26 @@ void Limpia_Consola(){
 }
 
 //APARTADO A
-int **Crea_Matriz2D_1(const int F, const int C){
+int **Crea_Matriz2D_2(const int F, const int C){
     int **matriz = new int *[F];
+    matriz[0] = new int[F*C];
 
-    for(int i = 0; i < F; i++){
-      matriz[i] = new int[C];
+    for(int i = 1; i < F; i++){
+      matriz[i] = matriz[i - 1] + C;
     }
 
     return matriz;
 }
 
 //APARTADO B
-void Borra_Matriz2D_1(int **matriz, const int F){
-    for(int i = 0; i < F; i++){
-      delete [] matriz[i];
-    }
-    delete [] matriz;
+void Borra_Matriz2D_2(int **matriz, const int F){
+  delete [] matriz[0];
+  delete [] matriz;
 }
 
 //APARTADO C
 int **Crea_Rellena(const int F, const int C){
-  int **matriz = Crea_Matriz2D_1(F, C);
+  int **matriz = Crea_Matriz2D_2(F, C);
 
   for(int i = 0; i < F; i++){
     for(int j = 0; j < C; j++){
@@ -44,7 +43,7 @@ int **Crea_Rellena(const int F, const int C){
 
 //APARTADO D
 int **Crea_Rellena_Aleatoriamente(const int F, const int C){
-  int **matriz = Crea_Matriz2D_1(F, C);
+  int **matriz = Crea_Matriz2D_2(F, C);
 
   time_t t;
 	srand ((int) time(&t));
@@ -70,7 +69,7 @@ void Muestra_Matriz(int **matriz, const int F, const int C){
 
 //APARTADO F
 int **Copia_Matriz(int **matriz, const int F, const int C){
-  int **copia_matriz = Crea_Matriz2D_1(F, C);
+  int **copia_matriz = Crea_Matriz2D_2(F, C);
 
   for(int i = 0; i < F; i++){
     for(int j = 0; j < C; j++){
@@ -83,7 +82,7 @@ int **Copia_Matriz(int **matriz, const int F, const int C){
 
 //APARTADO G
 int **Submatriz(int **matriz, int inicio_F, int inicio_C, int fin_F, int fin_C){
-    int **submatriz = Crea_Matriz2D_1(fin_F-inicio_F+1, fin_C-inicio_C+1);
+    int **submatriz = Crea_Matriz2D_2(fin_F-inicio_F+1, fin_C-inicio_C+1);
     int fnew = 0, cnew = 0;
 
     for(int i = inicio_F; i < fin_F+1; i++){
@@ -100,7 +99,7 @@ int **Submatriz(int **matriz, int inicio_F, int inicio_C, int fin_F, int fin_C){
 
 //APARTADO H
 int **Elimina_Fila(int **matriz, int &F, int C, int fila_borrar){
-  int **matriz_mod = Crea_Matriz2D_1(F-1, C);
+  int **matriz_mod = Crea_Matriz2D_2(F-1, C);
   int borrar = 0;
 
   for(int i = 0; i < F; i++){
@@ -117,7 +116,7 @@ int **Elimina_Fila(int **matriz, int &F, int C, int fila_borrar){
 
 //APARTADO I
 int **Elimina_Columna(int ** matriz, int F, int &C, int col_borrar){
-  int **matriz_mod = Crea_Matriz2D_1(F, C-1);
+  int **matriz_mod = Crea_Matriz2D_2(F, C-1);
   int borrar = 0;
 
   for(int j = 0; j < C; j++){
@@ -134,7 +133,7 @@ int **Elimina_Columna(int ** matriz, int F, int &C, int col_borrar){
 
 //APARTADO J
 int **Traspuesta(int **matriz, int F, int C){
-  int **traspuesta = Crea_Matriz2D_1(C, F);
+  int **traspuesta = Crea_Matriz2D_2(C, F);
 
   for(int i = 0; i < F; i++){
     for(int j = 0; j < C; j++){
@@ -147,7 +146,7 @@ int **Traspuesta(int **matriz, int F, int C){
 
 //APARTADO K
 int **Filas_Inv(int **matriz, int F, int C){
-  int **f_inv = Crea_Matriz2D_1(F, C);
+  int **f_inv = Crea_Matriz2D_2(F, C);
   int nuevo = 0;
 
   for(int i = F-1; i >= 0; i--){

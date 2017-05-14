@@ -74,12 +74,12 @@ int main(int argc, char const *argv[]) {
   inversa = Filas_Inv(matriz, F, C);
   Muestra_Matriz(inversa, F, C);
 
-  Borra_Matriz(matriz, F);
-  Borra_Matriz(copia_matriz, F);
-  Borra_Matriz(submatriz, fin_F-inicio_F+1);
-  Borra_Matriz(traspuesta, F);
-  Borra_Matriz(inversa, F);
-  Borra_Matriz(matriz_f, F-1);
-  Borra_Matriz(matriz_c, F);
+  Borra_Matriz2D_1(matriz, F);
+  Borra_Matriz2D_1(copia_matriz, F);
+  Borra_Matriz2D_1(submatriz, fin_F-inicio_F+1);
+  Borra_Matriz2D_1(traspuesta, F);
+  Borra_Matriz2D_1(inversa, F);
+  Borra_Matriz2D_1(matriz_f, F-1);
+  Borra_Matriz2D_1(matriz_c, F);
   return 0;
 }

@@ -7,7 +7,7 @@ using namespace std;
 int main(int argc, char const *argv[]) {
   TipoRedimension Redimension;
   const char *CENTINELA = "FIN";
-  int TAM = 0, valor;
+  int TAM, valor;
 
   if(argc == 1){
     Redimension = DeUnoEnUno;
@@ -24,8 +24,8 @@ int main(int argc, char const *argv[]) {
   }
 
   //Creo Vector Dinamico
-  // cout << "Introduzca el TAM del vector: ";
-  // cin >> TAM;
+  cout << "Introduzca el TAM del vector: ";
+  cin >> TAM;
 
   int *vec = new int[TAM];
 
@@ -46,6 +46,8 @@ int main(int argc, char const *argv[]) {
   Limpiar_Ventana();
 
   Mostrar(vec, TAM);
+
+  cout << endl;
 
   delete[] vec;
 

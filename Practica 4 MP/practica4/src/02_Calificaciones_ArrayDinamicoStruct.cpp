@@ -35,8 +35,8 @@ int main(int argc, char const *argv[]) {
   Muestra_Calif(calificacion_media, n_alum);
 
   if(argc == 3){
-    double inicio_nota = atoi ( *(argv + 1) );
-    double final_nota = atoi ( *(argv + 2) );
+    double inicio_nota = atof ( *(argv + 1) );
+    double final_nota = atof ( *(argv + 2) );
     ImprimirDatos_arg(alumnos, calificacion_media, inicio_nota, final_nota, n_alum, NUM_NOTAS);
   }
   else if(argc == 1){
@@ -46,7 +46,8 @@ int main(int argc, char const *argv[]) {
     cout << "Error de argumentos" << endl;
   }
 
-  delete[] alumnos;
   delete[] pesos;
   delete[] calificacion_media;
+  delete[] alumnos;
+
 }

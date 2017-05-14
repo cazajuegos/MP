@@ -1,13 +1,13 @@
-#ifndef MATRIZ2D_1_H
-#define MATRIZ2D_1_H
+#ifndef MATRIZ2D_2_H
+#define MATRIZ2D_2_H
 
 const int MIN = 1, MAX=9, NUM_VALORES = MAX-MIN+1;
 
 void Limpia_Consola();
 //APARTADO A
-int **Crea_Matriz2D_1(const int F, const int C);
+int **Crea_Matriz2D_2(const int F, const int C);
 //APARTADO B
-void Borra_Matriz2D_1(int **matriz, const int F);
+void Borra_Matriz2D_2(int **matriz, const int F);
 //APARTADO C
 int **Crea_Rellena(const int F, const int C);
 //APARTADO D

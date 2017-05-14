@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include "Matriz2D_1.h"
+#include "Matriz2D_2.h"
 
 using namespace std;
 
@@ -74,12 +74,12 @@ int main(int argc, char const *argv[]) {
   inversa = Filas_Inv(matriz, F, C);
   Muestra_Matriz(inversa, F, C);
 
-  Borra_Matriz(matriz, F);
-  Borra_Matriz(copia_matriz, F);
-  Borra_Matriz(submatriz, fin_F-inicio_F+1);
-  Borra_Matriz(traspuesta, F);
-  Borra_Matriz(inversa, F);
-  Borra_Matriz(matriz_f, F-1);
-  Borra_Matriz(matriz_c, F);
+  Borra_Matriz2D_2(matriz, F);
+  Borra_Matriz2D_2(copia_matriz, F);
+  Borra_Matriz2D_2(submatriz, fin_F-inicio_F+1);
+  Borra_Matriz2D_2(traspuesta, F);
+  Borra_Matriz2D_2(inversa, F);
+  Borra_Matriz2D_2(matriz_f, F-1);
+  Borra_Matriz2D_2(matriz_c, F);
   return 0;
 }

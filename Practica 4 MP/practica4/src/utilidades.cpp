@@ -157,15 +157,15 @@ void Muestra_Calif(double calificacion_media[], int num_alumnos){
 }
 
 void ImprimirDatos_arg(RegAlumno *alumnos, double calificacion_media[], double inicio_nota, double final_nota, int num_alumnos, int NUM_NOTAS){
-	cout << "\nAlumnos filtrado por las notas: " << inicio_nota << "-" << final_nota << endl;
+	cout << "\nAlumnos filtrado por las notas: " << "(" << inicio_nota << "-" << final_nota << ")" << endl << endl;
 
 	for(int i=0; i<num_alumnos; i++){
 		if((calificacion_media[i] >= inicio_nota) && (calificacion_media[i] <= final_nota)){
-			cout << "Nombre y apellidos: " << alumnos[i].apellido_nombre << "con D.N.I -> " << alumnos[i].DNI << endl;
+			cout << "Nombre y apellidos: " << alumnos[i].apellido_nombre << " con D.N.I -> " << alumnos[i].DNI << endl;
 			for (int j=0; j<NUM_NOTAS; j++){
 				cout << j+1 << ".Nota: " << alumnos[i].notas[j] << endl;
 			}
-			cout << "NOTA MEDIA: " << calificacion_media[i] << endl;
+			cout << "NOTA MEDIA: " << calificacion_media[i] << endl << endl;
 		}
 	}
 }
