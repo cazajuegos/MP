@@ -1,4 +1,5 @@
 #include<iostream>
+#include<string>
 using namespace std;
 
 class Barquitos{
@@ -7,9 +8,10 @@ class Barquitos{
 		int rows;
 		int cols;
 		int boat_number;
+		int golpeados;
 	public:
 		/* Constructors */
-		Barquitos(int total_rows, int total_cols, int boats){
+		Barquitos(int total_rows, int total_cols, int num_boats){
 			matrix = new int*[total_rows];
 			for(int j = 0; j < total_rows; j++){
 				matrix[j] = new int[total_cols];
@@ -19,7 +21,14 @@ class Barquitos{
 			}
 			rows = total_rows;
 			cols = total_cols;
-			boat_number = boats;
+			boat_number = num_boats;
+			golpeados = 0;
+		};
+
+		void finish(bool&playing){
+			showMatrix(true);
+			golpeados = 0;
+			playing = false;
 		};
 		/* Get methods */
 		int getRows(){ return rows; };
@@ -43,19 +52,21 @@ class Barquitos{
 		/* get and set cell method */
 		int get(int x, int y){ return inner(x, y) ? matrix[y][x] : 0;  };
 		void set(int x, int y, int val){ if(inner(x, y)) matrix[y][x] = val; };
-		bool shot(int x, int y){ if(!isShot(x,y)){ matrix[y][x] *= -1; return true; } else return false; };
+		int shot(int x, int y){ if(!isShot(x,y)){ matrix[y][x] *= -1; return -matrix[y][x]; } else return -1; };
 		bool setBoat(int x, int y, int s, char o){
 			int ori = (o == 'h') ? 1 : -1;
 			bool canPlace = true;
+			int hor = (ori + 1) / 2, vrt = hor - 1;
 			for(int i = 0; i < s && canPlace; i++){
-				int ii = x + i * (ori + 1) / 2;
-				int jj = y - i * (ori - 1) / 2;
+				int ii = x + i * hor;
+				int jj = y - i * vrt;
 				if(!inner(ii, jj) && get(ii, jj) == 9) canPlace = false;
 			}
 			if(canPlace){
 				for(int i = 0; i < s && canPlace; i++){
 					set(x + i * (ori + 1) / 2 , y - i * (ori - 1) / 2, s);
 				}
+				golpeados += s;
 			}
 			return canPlace;
 		};
@@ -66,10 +77,10 @@ class Barquitos{
 				for(int i = 0; i < cols; i++){
 					int cell = matrix[j][i];
 					if(cell < 0){
-						type = 'o';
-					}else if(cell  == 9){
+						type = cell == -9 ? 'o' : 'ø';
+					}else if(cell  == 9 || !all){
 						type = '^';
-					}else{
+					}else if(all){
 						type = 254;
 					}
 					cout << type;
@@ -93,16 +104,59 @@ class Barquitos{
 				i++;
 			}
 		};
+
+		void play(){
+			int number;
+			cout << "Introduzca la seed del juego: ";
+			cin >> number;
+			golpeados = 0;
+			createBoard(number);
+			string message;
+			bool playing = true;
+			while(playing){
+				cout << "Quiere abrir el menu? (s/n): ";
+				char menu;
+				int option = 1;
+				cin >> menu;
+				if(menu == 's' || menu == 'S'){
+					cout << "(1) Disparar " << endl << "(2) Ver mapa" << endl << "(3) Rendirse" << endl << "Seleccion: ";
+					cin >> option;
+				}
+
+				if(option == 1){
+					int i, j;
+					cout << "Donde quiere disparar? [x, y]: ";
+					cin >> i >> j;
+					int cell = shot(i, j);
+					if(cell < 0){
+						message = "No puede volver a disparar donde ya ha disparado!";
+					}else if(cell == 9){
+						message = "Pum! Pof! Aguaa!";
+					}else{
+						message = "Le hemos dado!!";
+						golpeados--;
+					}
+					cout << message << endl;
+					if(golpeados <= 0){
+						cout << "Ganaste!" << endl;
+						finish(playing);
+					}
+				}else if(option == 2){
+					showMatrix(false);
+				}else if(option == 3){
+					cout << "Esta seguro? (s/n)";
+					cin >> menu;
+					if(menu == 'S' || menu == 's'){
+						finish(playing);
+					}
+				}
+			}
+		};
 };
 
 
 int main(){
-	int number;
-	cout << "Introduzca la seed del juego: ";
-	cin >> number;
 	Barquitos juego(10, 10, 5);
-	juego.createBoard(number);
-	juego.showMatrix(true);
-	while()
+	juego.play();
 
 }
