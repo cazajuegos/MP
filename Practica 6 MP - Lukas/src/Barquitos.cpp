@@ -5,6 +5,7 @@ using namespace std;
 class Barquitos{
 	private:
 		int **matrix;
+
 		int rows;
 		int cols;
 		int boat_number;
@@ -64,7 +65,7 @@ class Barquitos{
 			}
 			if(canPlace){
 				for(int i = 0; i < s && canPlace; i++){
-					set(x + i * (ori + 1) / 2 , y - i * (ori - 1) / 2, s);
+					set(x + i * hor, y - i * vrt, s);
 				}
 				golpeados += s;
 			}
