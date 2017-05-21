@@ -29,7 +29,6 @@ class Barquitos{
 		Barquitos ( const Barquitos &obj){
 			rows = obj.getRows();
 			cols = obj.getCols();
-			boat_number = obj.getNumBarquitos();
 			golpeados 	= 0;
 			matrix = new int*[rows];
 			for(int j = 0; j < rows; j++){
@@ -55,7 +54,6 @@ class Barquitos{
 		/* Get methods */
 		int getRows() const{ return rows; };
 		int getCols() const{ return cols; };
-		int getNumBarquitos() const{ return barquitos; };
 
 		/* Main Methods */
 		bool inner(int x, int y) const{ return (x >= 0 && x < cols) && (y >= 0 && y < rows); };
@@ -71,10 +69,10 @@ class Barquitos{
 			for(int i = 0; i < s && canPlace; i++){
 				int ii = x + i * hor;
 				int jj = y - i * vrt;
-				if(!inner(ii, jj) && get(ii, jj) == 9) canPlace = false;
+				if(get(ii, jj) != 9) canPlace = false;
 			}
 			if(canPlace){
-				for(int i = 0; i < s && canPlace; i++){
+				for(int i = 0; i < s; i++){
 					set(x + i * hor, y - i * vrt, s);
 				}
 				golpeados += s;
@@ -84,7 +82,13 @@ class Barquitos{
 
 		void showMatrix(bool all){
 			char type;
+			cout << "  ";
+			for(int i = 0; i < cols; i++){
+				cout << i << " ";
+			}
+			cout << endl;
 			for(int j = 0; j < rows; j++){
+				cout << (char)(j + 'A') << " ";
 				for(int i = 0; i < cols; i++){
 					int cell = matrix[j][i];
 					if(cell < 0){
@@ -94,7 +98,7 @@ class Barquitos{
 					}else if(all){
 						type = '0' + cell;
 					}
-					cout << type;
+					cout << type << " ";
 				}
 				cout << endl;
 			}
@@ -135,9 +139,14 @@ class Barquitos{
 				}
 
 				if(option == 1){
+					char k;
 					int i, j;
-					cout << "Donde quiere disparar? [x, y]: ";
-					cin >> i >> j;
+					do{
+						cout << "Donde quiere disparar? [x, y]: ";
+						cin >> k;
+						cin >> i;
+						j = k - 'A';
+					}while(!inner(i, j));
 					int cell = shot(i, j);
 					if(cell < 0){
 						message = "No puede volver a disparar donde ya ha disparado!";
@@ -167,9 +176,7 @@ class Barquitos{
 
 
 int main(){
-	Barquitos juego(10, 10, 5);
-	juego.play();
-	Barquitos juego1(juego);
-	juego1.play();
-
+	Barquitos* juego = new Barquitos(10, 10, 5);
+	juego->play();
+	delete juego;
 }
