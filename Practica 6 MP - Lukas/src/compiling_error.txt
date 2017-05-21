@@ -1,0 +1,4 @@
+/home/cazz/MP/Practica 6 MP - Lukas/src/Barquitos.cpp: In member function ‘int Barquitos::getNumBarquitos() const’:
+/home/cazz/MP/Practica 6 MP - Lukas/src/Barquitos.cpp:58:39: error: ‘barquitos’ was not declared in this scope
+   int getNumBarquitos() const{ return barquitos; };
+                                       ^~~~~~~~~

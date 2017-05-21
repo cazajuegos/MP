@@ -26,32 +26,42 @@ class Barquitos{
 			golpeados = 0;
 		};
 
+		Barquitos ( const Barquitos &obj){
+			rows = obj.getRows();
+			cols = obj.getCols();
+			boat_number = obj.getNumBarquitos();
+			golpeados 	= 0;
+			matrix = new int*[rows];
+			for(int j = 0; j < rows; j++){
+				matrix[j] = new int[cols];
+				for(int i = 0; i < cols; i++){
+					matrix[j][i] = obj.get(i, j);
+				}
+			}
+		};
+
+		~Barquitos(){
+			for(int i = 0; i < rows; i++){
+				delete[] matrix[i];
+			}
+			delete[] matrix;
+		};
+
 		void finish(bool&playing){
 			showMatrix(true);
 			golpeados = 0;
 			playing = false;
 		};
 		/* Get methods */
-		int getRows(){ return rows; };
-		int getCols(){ return cols; };
-
-		/*Barquitos(const Barquitos &copia){
-			rows = copia.getRows();
-			cols = copia.getCols();
-			matrix = new int*[rows];
-			for(int j = 0; j < rows; j++){
-				matrix[j] = new int[cols];
-				for(int i = 0; i < cols; i++){
-					matrix[j][i] = copia.get(i, j);
-				}
-			}
-		};*/
+		int getRows() const{ return rows; };
+		int getCols() const{ return cols; };
+		int getNumBarquitos() const{ return barquitos; };
 
 		/* Main Methods */
-		bool inner(int x, int y){ return (x >= 0 && x < cols) && (y >= 0 && y < rows); };
-		bool isShot(int x, int y){ return get(x,y) < 0; };
+		bool inner(int x, int y) const{ return (x >= 0 && x < cols) && (y >= 0 && y < rows); };
+		bool isShot(int x, int y) const{ return get(x,y) < 0; };
 		/* get and set cell method */
-		int get(int x, int y){ return inner(x, y) ? matrix[y][x] : 0;  };
+		int get(int x, int y) const{ return inner(x, y) ? matrix[y][x] : 0;  };
 		void set(int x, int y, int val){ if(inner(x, y)) matrix[y][x] = val; };
 		int shot(int x, int y){ if(!isShot(x,y)){ matrix[y][x] *= -1; return -matrix[y][x]; } else return -1; };
 		bool setBoat(int x, int y, int s, char o){
@@ -78,11 +88,11 @@ class Barquitos{
 				for(int i = 0; i < cols; i++){
 					int cell = matrix[j][i];
 					if(cell < 0){
-						type = cell == -9 ? 'o' : 'ø';
+						type = cell == -9 ? 'o' : '*';
 					}else if(cell  == 9 || !all){
 						type = '^';
 					}else if(all){
-						type = 254;
+						type = '0' + cell;
 					}
 					cout << type;
 				}
@@ -159,5 +169,7 @@ class Barquitos{
 int main(){
 	Barquitos juego(10, 10, 5);
 	juego.play();
+	Barquitos juego1(juego);
+	juego1.play();
 
 }
