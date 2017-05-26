@@ -24,10 +24,10 @@ class BigInt{
 
 
 		BigInt( const BigInt &obj){
-			size = obj.getSize();
+			size = obj.getSize() + 1;
 			number = new int[size];
 			for(int i = 0; i < size; i++)
-				number[i] = obj.get(i);
+				number[i] = obj.get(i - 1);
 		};
 
 		~BigInt(){
@@ -76,30 +76,63 @@ class BigInt{
 			number = fnumb;
 		}
 
+		void operator =(const BigInt&n1){
+			size = n1.getSize() + 1;
+			number = new int[size];
+			for(int i = 0; i < size; i++)
+				number[i] = n1.get(i - 1);
+		}
+
 		/* Overload */
 		BigInt operator +(const BigInt&n1){
-			int max = getSize() >= n1.getSize() ? getSize() : n1.getSize(), fnsz = max;
-			int *smfin = new int[max];
+			BigInt max, min;
+			if(getSize() > n1.getSize()){
+				max = *this;
+				min = n1;
+			}else if(getSize() < n1.getSize()){
+				max = n1;
+				min = *this;
+			}else{
+				bool tbig = false;
+				for(int i = 0; i < getSize() && !tbig; i++){
+					if(n1.get(i) > get(i)){
+						tbig = true;
+					}
+				}
+				if(tbig){
+					max = n1;
+					min = *this;
+				}else{
+					max = *this;
+					min = n1;
+				}
+			}
+			int maxsize =  max.getSize(), fnsz = maxsize;
+			int *smfin = new int[maxsize];
 
 			int acarreo = 0;
-			int sign;
-			if(getSign() * n1.getSign() > 0){ // Both have the same sign.
-				sign = (1-getSign())/2;
-				for(int i = 0; i < max; i++){
-					int sum = get(i) + n1.get(i) + acarreo;
-					smfin[i] = sum % 10;
+			for(int i = 0; i < maxsize; i++){
+				int sum;
+				if(min.getSign() * max.getSign() < 0){
+					sum = max.get(i) - min.get(i) + acarreo;
+					acarreo = sum / 10;
+					sum += -10 * acarreo;
+				}else{
+					sum = max.get(i) + min.get(i) + acarreo;
 					acarreo = sum / 10;
 				}
-				fnsz += acarreo;
+				smfin[i] = mod(abs(sum), 10);
 			}
 
+			fnsz += acarreo;
 			BigInt suma(fnsz);
-			suma.set(0, sign);
+			suma.set(0, (1 - max.getSign()) / 2);
+
 			for(int i = 0; i < fnsz; i++){
 				suma.set(i + 1, smfin[i]);
 			}
 			if(acarreo == 1){
-				suma.set(max + 1, 1);
+				suma.set(maxsize + 1, 1);
 			}
 
 			delete[] smfin;
