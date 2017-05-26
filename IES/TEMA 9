@@ -1,0 +1,166 @@
+TEMA 9: LA DIRECCIÓN FINANCIERA
+
+  DEFINICIÓN:
+    Se encarga de todas las decisiones de inversión y de financiación dentro de la empresa.
+    Inversiones infinitas.
+    Recursos financieros limitados.
+
+
+
+    Conseguir que la rentabilidad de las inversiones sea superior al coste de su financiación.
+
+  OBJETIVOS:
+    1. Utilizar de forma óptima los recursos financieros.
+    2. Analizar la mejor manera posible de financiar los proyectos de inversiones elegidos.
+    3. Determinar el equilibrio financiero, para hacer frente deudas.
+
+  LA INVERSIÓN:
+    Determinan la estructura económica de la empresa.
+
+    - SENTIDO ESTRICTO:
+      Se entiende por inversión todos los desembolsos destinados a la adquisición de bienes de inmovilizado.
+    - SENTIDO AMPLIO:
+      La inversión engloba a más bienes.
+
+    - ACTIVO NO CORRIENTE:
+      Inversiones de estructura, permanecen más de (1 año).
+    - ACTIVO CORRIENTE:
+      Las inversiones de funcionamiento permanecen menos de (1 año) y se recuperan a través de su proceso productivo.
+      Se puede desagregar a su vez en:
+        - EXISTENCIAS:
+          Bienes adquiridos por la empresa para venderlos o transformarlos durante proceso productivo.
+        - DEUDORES COMERCIALES:
+          Inversiones a corto plazo, bienes que se pueden convertir en dinero con rapidez.
+        - EFECTIVO Y OTROS ACTIVOS LÍQUIDOS EQUIVALENTES:
+          Valores que pueden ser transformados en dinero sin coste alguno.
+
+  FACTORES DE INVERSIÓN:
+    1. RENTABILIDAD:
+       Beneficio que obtiene la empresa. Diferencia entre ingresos y costes.
+    2. VALOR DEL DINERO EN EL TIEMPO:
+       2.1. PERDIDA DEL PODER ADQUISITIVO:
+            Si se inmoviliza una cantidad de dinero hoy, se espera obtener una ganancia futura superior que, al menos,
+            mantenga la misma capacidad adquisitiva actual.
+       2.2. EL COSTE DE OPORTUNIDAD:
+            No recibir una cantidad de dinero ahora elimina la oportunidad de invertirla en una inversión que genere ganancias.
+
+  LAS VARIABLES DE INVERSIÓN:
+     1. DESEMBOLSO INICIAL(Ao):
+        Pago que origina la adquisición de elementos del activo.
+     2. HORIZONTE TEMPORAL DE LA INVERSIÓN(n):
+        Periodo de tiempo se originan cobros y pagos.
+     3. FLUJO NETO DE CAJA(Qj):
+        Qj = Cj - Pj (cobro menos pagos).
+
+  MÉTODOS DE SELECCIÓN  DE INVERSIONES:
+    Aportan mayor valor a la empresa.
+    1. MÉTODOS ESTÁTICOS:
+       Omite el valor del dinero en el tiempo.
+       - Criterio de flujo neto de caja total.
+       - Criterio de plazo de recuperación "pay-back" estático.
+    2. MÉTODOS DINÁMICOS:
+       Magnitudes monetarias sean hómogeneas, mismo momento de tiempo.
+       - Criterio de plazo de recuperación "pay-back" dinámico.
+       - Criterio de valor actual neto(VAN).
+       - Criterio de la tasa interna de rentabilidad(TIR).
+
+    EXPLICACIÓN DE LOS CRITERIOS:
+      - Criterio de flujo neto de caja total:
+        Diferencia entre cobros generados y pagos originados de la inversión incluyendo desembolso inicial:
+
+
+
+        FNCT por unidad monetaria comprometida:
+
+
+
+        FNCT medio anual por unidad monetaria comprometida:
+
+
+
+      - Plazo de recuperación "pay-back" estático:
+        Tiempo de recuperación del (Ao) con flujos netos de carga generados por dicho proyecto.
+
+      - Plazo de recuperación "pay-back" dinámico:
+        Idem.
+
+      - Valor actual neto(VAN):
+        Suma de valor de todos los flujos netos de carga futuros, menos (Ao), teniendo en cuenta la tasa
+        de rentabilidad (k) durante determinado (n):
+
+
+
+
+        Ofrece una media de la rentabilidad de una inversión.
+
+      - Tasa interna de rentabilidad(TIR):
+        Cálculo de un valor de la tasa de descuento (r) que hace igual a 0 el (VAN):
+
+
+
+
+
+
+
+
+
+
+
+        .
+
+  LA FINANCIACIÓN:
+    Se conocen como recursos financieros o fuentes de financiación y engloba el conjunto de deudas
+    y obligaciones que debe satisfacer una empresa en el desarrollo de su actividad.
+
+  CLASIFICACIÓN DE LA ESTRUCTURA FINANCIERA DE LA EMPRESA.
+    1. PROPIEDAD DE LOS RECURSOS:
+      - RECURSOS PROPIOS:
+        Capital social, Reservas, Prima de emisión.
+      - RECURSOS AJENOS:
+        Recursos obtenidos del exterior, obligación de devolverlos en un plazo determinado.
+    2. TIEMPO DE VINCULACIÓN DE LOS RECURSOS.
+      - PATRIMONIO NETO Y PASIVO NO CORRIENTE:
+        Capital social, Reservas, Prima de emisión, Recursos ajenos, sin obligación de devolverlos.
+
+        <--AMORTIZACIONES  Y DETERIOROS DE VALOR-->
+
+      - PASIVO CORRIENTE:
+        Recursos ajenos que la empresa debe devolver.
+
+    3. PROCEDENCIA DE LOS RECURSOS.
+      - RECURSOS INTERNOS O AUTOFINANCIACIÓN:
+        Amortizaciones, Deterioros de valor, Reservas, generados por la propia empresa.
+
+      <--AUTOFINANCIACIÓN POR MANTENIMIENTO, POR ENRIQUECIMIENTO-->
+
+      - RECURSOS EXTERNOS:
+        Capital social, Prima de emisión, Recursos ajenos.
+
+  AUTOFINANCIACIÓN:
+    - AUTOFINANCIACIÓN DE MANTENIMIENTO(AMORTIZACIÓN TECNICA):
+        Mantener capacidad productiva.
+        Perdida del valor de los elementos activo no corriente.
+          CAUSAS:
+            Depreciación física.
+            Depreciación por obsolescencia.
+            Depreciación por agotamiento o caducidad.
+
+    - AUTOFINANCIACIÓN DE ENRIQUECIMIENTO(LAS RESERVAS):
+        Financiar proyectos de inversión aumentar capacidad productiva.
+        Reservas: beneficio obtenido que no es distribuido.
+          TIPOS DE RESERVAS.
+          VENTAJAS
+              MAYOR AUTONOMIA.
+              SIN COSTE.
+          INCONVENIENTES
+              SE GENERA DE FORMA DISCONTINUA.
+
+  EQUILIBRIO FINANCIERO DE LA EMPRESA:
+    Empresa hace frente con sus recursos a pagos sin producir deficit en la tesoreria.
+      -FONDO DE MANIOBRA:
+        Fondo de previsión y hacer frente a los desfases temporales.
+        CALCULARSE:
+          - Diferencia entre activo corriente y pasivo corriente.
+          - Diferencia entre recursos permanentes y activo no corriente.
+          - Suponiendo que el activo no corriente está financiado íntegramente con recursos permanentes,
+            el fondo de rotación es la parte del activo corriente que se financia con recursos permanentes.
