@@ -1,5 +1,5 @@
-#include<iostream>
-#include<string>
+#ifndef BIGINT_H
+#define BIGINT_H
 using namespace std;
 
 class BigInt{
@@ -29,3 +29,4 @@ class BigInt{
 		BigInt operator +(const BigInt&n1);
 		void operator =(const BigInt&n1);
 };
+#endif
