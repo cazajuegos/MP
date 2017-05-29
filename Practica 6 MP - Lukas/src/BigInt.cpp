@@ -1,4 +1,5 @@
 #include<iostream>
+#include "BigInt.h"
 
 BigInt::BigInt(){
 	size = 2;
@@ -112,7 +113,6 @@ BigInt BigInt::operator +(const BigInt&n1){
 		}
 		smfin[i] = sum % 10;
 	}
-	cout << acarreo << "<-";
 	maxsize += acarreo - zeros;
 	BigInt suma(maxsize);
 	suma.set(0, (1 - max.getSign()) / 2);

@@ -11,4 +11,5 @@ int main(){
 	BigInt number3 = number1 + number2;
 	cout << "La suma de ambos numeros es: ";
 	number3.show();
+	cout << endl;
 }

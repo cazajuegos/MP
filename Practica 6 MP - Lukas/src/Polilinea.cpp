@@ -1,4 +1,5 @@
 #include<iostream>
+#include "Polilinea.h"
 using namespace std;
 
 Punto::Punto(){

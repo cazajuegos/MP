@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string>
+#include "Barquitos.h"
 using namespace std;
 
 Barquitos::Barquitos(int total_rows, int total_cols, int num_boats):rows(total_rows), cols(total_cols), boat_number(num_boats), golpeados(0){
@@ -80,7 +81,7 @@ void Barquitos::showMatrix(bool all){
 			if(cell < 0){
 				type = cell == -9 ? 'o' : '*';
 			}else if(cell  == 9 || !all){
-				type = '^';
+				type = '~';
 			}else if(all){
 				type = '0' + cell;
 			}

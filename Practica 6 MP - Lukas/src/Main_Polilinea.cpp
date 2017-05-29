@@ -16,4 +16,5 @@ int main(){
   }while(term != -1);
 
   poli.show();
+  cout << endl;
 }

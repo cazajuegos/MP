@@ -11,14 +11,14 @@ INCLUDE = include
 # --- Rules ---
 .PHONY: all info clean mrproper
 
-all: $(addprefix $(BIN)/, Barquitos BigInt Polilinea)
+all: $(addprefix $(BIN)/, Barquitos BigInt Polilinea Lista)
 
 ## make the executables files
 ## Compilacion Barcos.
-$(BIN)/Barquitos: $(OBJ)/Main_Barquitos.o $(OBJ)/Barquitos.o
+$(BIN)/Barquitos: $(OBJ)/Barquitos_Main.o $(OBJ)/Barquitos.o
 	$(CXX) -o $@ $^
 ## Compilacion numeros grandes.
-$(BIN)/BigInt: $(OBJ)/Barquitos_Main.o $(OBJ)/BigInt.o
+$(BIN)/BigInt: $(OBJ)/BigInt_Main.o $(OBJ)/BigInt.o
 	$(CXX) -o $@ $^
 ## Compilacion Polilinea
 $(BIN)/Polilinea: $(OBJ)/Polilinea_Main.o $(OBJ)/Polilinea.o
@@ -28,29 +28,29 @@ $(BIN)/Lista: $(OBJ)/Lista_Main.o $(OBJ)/Lista.o
 	$(CXX) -o $@ $^
 
 ## make .o files for executables
-$(OBJ)/Barquitos_Main.o: $(SRC)/Main_Barquitos.o
+$(OBJ)/Barquitos_Main.o: $(SRC)/Main_Barquitos.cpp
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
-$(OBJ)/BigInt_Main.o: $(SRC)/Main_Barquitos.o
+$(OBJ)/BigInt_Main.o: $(SRC)/Main_BigInt.cpp
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
-$(OBJ)/Polilinea_Main.o: $(SRC)/Polilinea_Main.o
+$(OBJ)/Polilinea_Main.o: $(SRC)/Main_Polilinea.cpp
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
-$(OBJ)/Lista_Main.o: $(SRC)/Lista_Main.o
+$(OBJ)/Lista_Main.o: $(SRC)/Main_Lista.cpp
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 ## Compilacion de clases.
-$(OBJ)/Barquitos.o: $(OBJ)/Barquitos.cpp $(INCLUDE)/Barquitos.h
+$(OBJ)/Barquitos.o: $(SRC)/Barquitos.cpp $(INCLUDE)/Barquitos.h
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
-$(OBJ)/BigInt.o: $(OBJ)/BigInt.cpp $(INCLUDE)/BigInt.h
+$(OBJ)/BigInt.o: $(SRC)/BigInt.cpp $(INCLUDE)/BigInt.h
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
-$(OBJ)/Polilinea.o: $(OBJ)/Polilinea.cpp $(INCLUDE)/Polilinea.h
+$(OBJ)/Polilinea.o: $(SRC)/Polilinea.cpp $(INCLUDE)/Polilinea.h
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
-$(OBJ)/Lista.o: $(OBJ)/Lista.cpp $(INCLUDE)/Lista.h
+$(OBJ)/Lista.o: $(SRC)/Lista.cpp $(INCLUDE)/Lista.h
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 info:
