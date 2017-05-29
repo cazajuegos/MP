@@ -106,17 +106,20 @@ void Barquitos::createBoard(int seed){
 	}
 };
 
-void Barquitos::operator =(const Barquitos&n1){
-	rows = n1.getRows();
-	cols = n1.getCols();
-	golpeados 	= 0;
-	matrix = new int*[rows];
-	for(int j = 0; j < rows; j++){
-		matrix[j] = new int[cols];
-		for(int i = 0; i < cols; i++){
-			matrix[j][i] = n1.get(i, j);
+Barquitos& Barquitos::operator =(const Barquitos&n1){
+	if(this != &n1){
+		rows = n1.getRows();
+		cols = n1.getCols();
+		golpeados 	= 0;
+		matrix = new int*[rows];
+		for(int j = 0; j < rows; j++){
+			matrix[j] = new int[cols];
+			for(int i = 0; i < cols; i++){
+				matrix[j][i] = n1.get(i, j);
+			}
 		}
 	}
+	return *this;
 }
 
 void Barquitos::play(){

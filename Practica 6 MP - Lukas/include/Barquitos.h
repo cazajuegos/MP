@@ -34,6 +34,6 @@ class Barquitos{
 		void createBoard(int seed);
 
 		void play();
-		void operator =(const Barquitos&n1);
+		Barquitos& operator =(const Barquitos&n1);
 };
 #endif

@@ -36,7 +36,7 @@ class Polilinea{
     void setPunto(const Punto&punto);
 
     /* overload */
-    void operator =(const Polilinea &p);
+    Polilinea& operator =(const Polilinea &p);
 
     /* main */
     void show();

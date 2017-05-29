@@ -64,12 +64,15 @@ void Polilinea::setPunto(const Punto&punto){
 };
 
 /* overload */
-void Polilinea::operator =(const Polilinea &p){
-  total = p.getTotal();
-  puntos = new Punto[total];
-  for(int i = 0; i < total; i++){
-    puntos[i] = Punto(p.getPunto(i));
+Polilinea& Polilinea::operator =(const Polilinea &p){
+  if(this != &p){
+    total = p.getTotal();
+    puntos = new Punto[total];
+    for(int i = 0; i < total; i++){
+      puntos[i] = Punto(p.getPunto(i));
+    }
   }
+  return *this;
 };
 
 /* main */

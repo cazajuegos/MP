@@ -27,6 +27,6 @@ class BigInt{
 
 		/* Overload */
 		BigInt operator +(const BigInt&n1);
-		void operator =(const BigInt&n1);
+		BigInt& operator =(const BigInt&n1);
 };
 #endif

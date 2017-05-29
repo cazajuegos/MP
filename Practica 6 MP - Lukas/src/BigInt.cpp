@@ -128,9 +128,12 @@ BigInt BigInt::operator +(const BigInt&n1){
 	return suma;
 };
 
-void BigInt::operator =(const BigInt&n1){
-	size = n1.getSize() + 1;
-	number = new int[size];
-	for(int i = 0; i < size; i++)
-		number[i] = n1.get(i - 1);
+BigInt& BigInt::operator =(const BigInt&n1){
+	if(this != &n1){
+		size = n1.getSize() + 1;
+		number = new int[size];
+		for(int i = 0; i < size; i++)
+			number[i] = n1.get(i - 1);
+	}
+	return *this;
 };
