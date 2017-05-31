@@ -1,5 +1,6 @@
 #ifndef BARQUITOS_H
 #define BARQUITOS_H
+
 class Barquitos{
 	private:
 		int **matrix;

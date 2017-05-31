@@ -1,6 +1,5 @@
 #ifndef BIGINT_H
 #define BIGINT_H
-using namespace std;
 
 class BigInt{
 	private:
