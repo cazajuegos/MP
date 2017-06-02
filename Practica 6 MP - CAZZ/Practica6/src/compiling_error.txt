@@ -1,0 +1,4 @@
+/home/cazz/MP/Practica 6 MP - CAZZ/Practica6/src/Polilinea.cpp:2:23: fatal error: Polilinea.h: No existe el archivo o el directorio
+ #include "Polilinea.h"
+                       ^
+compilation terminated.

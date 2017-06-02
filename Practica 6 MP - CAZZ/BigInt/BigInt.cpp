@@ -1,37 +1,41 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#include "BigInt.h"
 
 using namespace std;
 
-  BigInt::BigInt(){
+class BigInt{
+private:
+  int *numero, tam;
+
+public:
+  BigInt(){
     tam = 1;
     numero = new int[tam];
     numero[0] = 0;
-  };
+  }
 
-  BigInt::BigInt(int tm){
+  BigInt(int tm){
     tam = tm;
     numero = new int[tam];
     for(int i = 0; i < tam; i++){
       numero[i] = 0;
     }
-  };
+  }
 
-  BigInt::~BigInt(){
+  ~BigInt(){
     delete [] numero;
-  };
+  }
 
-  BigInt::BigInt(const BigInt &b){
+  BigInt(const BigInt &b){
     tam = b.tam;
     numero = new int [tam];
     for(int i = 0; i < tam; i++){
       numero[i] = b.numero[i];
     }
-  };
+  }
 
-  void BigInt::Lee_Numero(){
+  void Lee_Numero(){
     char num[100];
     cout << "Introduzca el numero: ";
     cin.getline(num, 100);
@@ -44,15 +48,15 @@ using namespace std;
     for(int i = 0; i < tam; i++){
       numero[i] = num[tam - 1 - i] - '0';
     }
-  };
+  }
 
-  void BigInt::Muestra(){
+  void Muestra(){
     for(int i= tam-1; i >= 0; i--){
       cout << numero[i];
     }
-  };
+  }
 
-  BigInt BigInt::Suma(const BigInt &b){
+  BigInt Suma(const BigInt &b){
     int acarreo = 0;
     int mayor_tam;
 
@@ -77,4 +81,21 @@ using namespace std;
     numsumado.numero[tam - 1 + acarreo] += acarreo;
 
     return numsumado;
-  };
+  }
+};
+
+
+int main() {
+  BigInt numero1;
+  numero1.Lee_Numero();
+  BigInt numero2;
+  numero2.Lee_Numero();
+  system("/usr/bin/clear");
+  cout << "Primer numero: "; numero1.Muestra();
+  cout << "\nSegundo numero: "; numero2.Muestra();
+  BigInt Suma = numero1.Suma(numero2);
+  cout << "\n---------------------";
+  cout << "\nLa suma es: "; Suma.Muestra();
+
+  return 0;
+}
