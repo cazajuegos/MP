@@ -1,5 +1,6 @@
 #include<iostream>
 #include "BigInt.h"
+using namespace std;
 
 BigInt::BigInt(){
 	size = 2;

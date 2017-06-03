@@ -21,6 +21,5 @@ int main(){
   cout << "\nLa suma es: ";
   Suma.Muestra();
   cout << endl;
-
   return 0;
 }

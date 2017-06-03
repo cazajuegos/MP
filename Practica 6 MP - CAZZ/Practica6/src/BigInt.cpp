@@ -62,7 +62,7 @@ using namespace std;
       mayor_tam = b.tam;
     }
 
-    int *suma = new int[mayor_tam];
+    int suma[mayor_tam];
 
     for(int i=0; i < mayor_tam; i++){
       int sm = numero[i] + b.numero[i] + acarreo;
@@ -75,6 +75,5 @@ using namespace std;
       numsumado.numero[i] = suma[i];
     }
     numsumado.numero[tam - 1 + acarreo] += acarreo;
-
     return numsumado;
   };

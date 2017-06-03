@@ -11,7 +11,7 @@ INCLUDE = include
 # --- Rules ---
 .PHONY: all info clean mrproper
 
-all: $(addprefix $(BIN)/, Barquitos BigInt Polilinea Lista MatrizDispersa Skylines Pareja Menu)
+all: $(addprefix $(BIN)/, Barquitos BigInt Polilinea Lista MatrizDispersa Pareja Menu)
 
 ## make the executables files
 ## Compilacion Barcos.
@@ -30,13 +30,10 @@ $(BIN)/Lista: $(OBJ)/Lista_Main.o $(OBJ)/Lista.o
 $(BIN)/MatrizDispersa: $(OBJ)/MatrizDispersa_Main.o $(OBJ)/MatrizDispersa.o
 	$(CXX) -o $@ $^
 ## Compilacion Pareja
-$(BIN)/Skylines: $(OBJ)/Skylines_Main.o $(OBJ)/Skylines.o
-	$(CXX) -o $@ $^
-## Compilacion Pareja
 $(BIN)/Pareja: $(OBJ)/Pareja_Main.o $(OBJ)/Pareja.o
 	$(CXX) -o $@ $^
 
-## Compilacion Pareja
+## Compilacion Menu
 $(BIN)/Menu: $(OBJ)/Menu_Main.o $(OBJ)/Menu.o
 	$(CXX) -o $@ $^
 
@@ -54,9 +51,6 @@ $(OBJ)/Lista_Main.o: $(SRC)/Main_Lista.cpp
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 $(OBJ)/MatrizDispersa_Main.o: $(SRC)/Main_MatrizDispersa.cpp
-	$(CXX) $(CXXFLAGS) -o $@ -c $<
-
-$(OBJ)/Skylines_Main.o: $(SRC)/Main_Skylines.cpp
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 $(OBJ)/Pareja_Main.o: $(SRC)/Main_Pareja.cpp
@@ -79,9 +73,6 @@ $(OBJ)/Lista.o: $(SRC)/Lista.cpp $(INCLUDE)/Lista.h
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 $(OBJ)/MatrizDispersa.o: $(SRC)/MatrizDispersa.cpp $(INCLUDE)/MatrizDispersa.h
-	$(CXX) $(CXXFLAGS) -o $@ -c $<
-
-$(OBJ)/Skylines.o: $(SRC)/Skylines.cpp $(INCLUDE)/Skylines.h
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 $(OBJ)/Pareja.o: $(SRC)/Pareja.cpp $(INCLUDE)/Pareja.h
