@@ -7,6 +7,9 @@ using namespace std;
 
 int main(){
   system("/usr/bin/clear");
+  cout << "------" << endl;
+  cout << "BIGINT" << endl;
+  cout << "------" << endl;
   BigInt numero1;
   numero1.Lee_Numero();
   BigInt numero2;
@@ -20,6 +23,6 @@ int main(){
   cout << "\n---------------------";
   cout << "\nLa suma es: ";
   Suma.Muestra();
-  cout << endl;
+  cout << "\n---------------------" << endl;
   return 0;
 }

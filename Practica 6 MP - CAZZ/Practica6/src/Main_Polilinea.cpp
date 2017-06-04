@@ -10,6 +10,7 @@ int main(){
   char respuesta;
 
   system("/usr/bin/clear");
+  cout << "---------" << "\nPOLILINEA\n" << "---------" << endl;
   cout << "¿Desea introducir Puntos a la Polilinea(Y/N)? ";
   cin >> respuesta;
 

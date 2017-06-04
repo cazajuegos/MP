@@ -1,4 +1,0 @@
-/home/cazz/MP/Practica 6 MP - CAZZ/Practica6/src/Main_BigInt.cpp:4:20: fatal error: BigInt.h: No existe el archivo o el directorio
- #include "BigInt.h"
-                    ^
-compilation terminated.

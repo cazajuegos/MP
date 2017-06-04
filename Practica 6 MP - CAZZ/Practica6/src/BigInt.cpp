@@ -32,7 +32,7 @@ using namespace std;
   };
 
   void BigInt::Lee_Numero(){
-    char num[100];
+    char *num = new char [100];
     cout << "Introduzca el numero: ";
     cin.getline(num, 100);
 
@@ -44,6 +44,7 @@ using namespace std;
     for(int i = 0; i < tam; i++){
       numero[i] = num[tam - 1 - i] - '0';
     }
+    delete [] num;
   };
 
   void BigInt::Muestra(){
@@ -62,18 +63,22 @@ using namespace std;
       mayor_tam = b.tam;
     }
 
-    int suma[mayor_tam];
+    int *suma = new int [mayor_tam];
 
     for(int i=0; i < mayor_tam; i++){
       int sm = numero[i] + b.numero[i] + acarreo;
       acarreo = sm / 10;
       suma[i] = sm % 10;
     }
-    BigInt numsumado(tam + acarreo);
+
+    BigInt numsumado(mayor_tam + acarreo);
 
     for(int i = 0; i < tam; i++){
       numsumado.numero[i] = suma[i];
     }
-    numsumado.numero[tam - 1 + acarreo] += acarreo;
+
+    numsumado.numero[mayor_tam - 1 + acarreo] += acarreo;
+
+    delete [] suma;
     return numsumado;
   };
